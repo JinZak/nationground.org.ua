@@ -57,14 +57,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Mobile menu toggle
   const toggleMenu = () => {
-    if(mobileMenu && menuIcon && closeIcon) {
+    if(mobileMenu) {
       mobileMenu.classList.toggle('hidden');
-      menuIcon.classList.toggle('hidden');
-      closeIcon.classList.toggle('hidden');
+      
+      // Optionally toggle the SVG icon from hamburger to X
+      const svgPath = document.querySelector('[data-action="click->navbar#toggleMobileMenu"] svg path');
+      if (svgPath) {
+        const isHidden = mobileMenu.classList.contains('hidden');
+        if (isHidden) {
+          svgPath.setAttribute('d', 'M4 6h16M4 12h16M4 18h16'); // Hamburger
+        } else {
+          svgPath.setAttribute('d', 'M6 18L18 6M6 6l12 12'); // Close X
+        }
+      }
     }
   };
 
-  document.querySelectorAll('[data-action="click->navbar#toggle"]').forEach(el => {
+  document.querySelectorAll('[data-action="click->navbar#toggleMobileMenu"]').forEach(el => {
     el.addEventListener('click', toggleMenu);
   });
 
