@@ -1,0 +1,12 @@
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "84785d72a948d40e83c6a932b879121a4467ee81",
+  "prompts": {},
+  "humans": {
+    "h_9818a3dea110d1": {
+      "author": "JinZak <falltronker021@gmail.com>"
+    }
+  }
+}
