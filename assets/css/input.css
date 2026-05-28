@@ -1,0 +1,87 @@
+@import "tailwindcss";
+@source "../../../app/views";
+@source "../../../app/helpers";
+@source "../../../app/javascript";
+
+@theme {
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Montserrat', sans-serif;
+  --font-tactical: 'Space Grotesk', sans-serif;
+  --font-volja: 'Volja Regular', 'Volja', sans-serif;
+  --font-holos: 'Holos Bold', 'Holos', sans-serif;
+  --color-tactical-950: #070708;
+  --color-tactical-900: #111215;
+  --color-tactical-800: #1c1e22;
+  --color-tactical-accent: #ffffff;
+  --color-tactical-green: #3ade70;
+  --color-tactical-darkAccent: #1c1d21;
+}
+
+@layer base {
+  @font-face {
+      font-family: 'Volja Regular';
+      src: local('Volja Regular'), local('Volja-Regular'), local('Volja');
+      font-weight: normal;
+      font-style: normal;
+  }
+
+  @font-face {
+      font-family: 'Holos Bold';
+      src: local('Holos Bold'), local('Holos-Bold'), local('Holos'),
+          url('../fonts/Holos-Bold.otf') format('opentype'),
+          url('../fonts/Holos-Bold.ttf') format('truetype');
+      font-weight: bold;
+      font-style: normal;
+  }
+
+  body {
+      background-color: #070708;
+      color: #fafafa;
+  }
+}
+
+@layer utilities {
+  .clip-edges {
+      clip-path: polygon(12px 0, calc(100% - 12px) 0, 100% 12px, 100% calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 0 calc(100% - 12px), 0 12px);
+  }
+
+  .clip-edges-sm {
+      clip-path: polygon(6px 0, calc(100% - 6px) 0, 100% 6px, 100% calc(100% - 6px), calc(100% - 6px) 100%, 6px 100%, 0 calc(100% - 6px), 0 6px);
+  }
+
+  .bg-pattern {
+      background-image: radial-gradient(#1c1e22 1.5px, transparent 1.5px);
+      background-size: 32px 32px;
+  }
+
+  .glow-hover:hover {
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  }
+
+  .grunt-dot {
+      display: block;
+      position: absolute;
+      top: -0.1em;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0.12em;
+      height: 0.12em;
+      background-color: #52525b;
+      border-radius: 50%;
+  }
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #070708;
+}
+::-webkit-scrollbar-thumb {
+    background: #1c1e22;
+    border-radius: 2px;
+    border: 2px solid #070708;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #3f444d;
+}

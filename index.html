@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="uk" class="scroll-smooth">
+  <head>
+    <title>ҐРУНТ НАЦІЇ</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    
+    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,800;0,900;1,900&family=Space+Grotesk:wght@500;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    
+
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg" />
+    <link rel="apple-touch-icon" type="image/svg+xml" href="assets/images/logo.svg" />
+        <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/script.js" defer></script>
+  </head>
+
+  <body class="antialiased selection:bg-white selection:text-black flex flex-col min-h-screen">
+        <nav class="fixed w-full z-50 bg-tactical-950/90 backdrop-blur-md border-b border-zinc-900" data-controller="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="/" class="flex-shrink-0 cursor-pointer flex items-center gap-3" data-action="click->navbar#scrollToTop">
+                    <img alt="Логотип Ґрунт Нації" class="h-10 w-auto object-contain" onerror="this.outerHTML=&#39;&lt;div class=\&#39;w-10 h-10 border-2 border-white flex items-center justify-center font-display font-black text-white text-sm\&#39;&gt;ҐН&lt;/div&gt;&#39;" src="assets/images/logo.svg" />
+                </a>
+
+                <div class="hidden md:flex absolute left-1/2 translate-x-[calc(-50%+15%)] items-center gap-8">
+                    <a href="/about"
+                        class="text-zinc-400 hover:text-white px-3 py-2 text-xs font-bold uppercase tracking-widest transition-colors font-tactical">Про
+                        нас</a>
+                    <a href="/directions"
+                        class="text-zinc-400 hover:text-white px-3 py-2 text-xs font-bold uppercase tracking-widest transition-colors font-tactical">Напрямки</a>
+                    <a href="/events"
+                        class="text-zinc-400 hover:text-white px-3 py-2 text-xs font-bold uppercase tracking-widest transition-colors font-tactical">Заходи</a>
+                    <a href="/contacts"
+                        class="text-zinc-400 hover:text-white px-3 py-2 text-xs font-bold uppercase tracking-widest transition-colors font-tactical">Контакти</a>
+                    <div data-navbar-target="ctaWrapper" style="opacity: 0; pointer-events: none; transition: opacity 0.4s ease;">
+                        <a href="/join"
+                            class="inline-flex items-center justify-center px-6 py-2.5 border border-white text-xs font-bold uppercase tracking-widest text-black bg-white hover:bg-transparent hover:text-white clip-edges-sm transition-all duration-300">
+                            Долучитися
+                        </a>
+                    </div>
+                </div>
+
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" data-action="click->navbar#toggleMobileMenu"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-zinc-400 hover:text-white hover:bg-zinc-900 focus:outline-none">
+                        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="md:hidden hidden bg-tactical-900 border-b border-zinc-900" data-navbar-target="mobileMenu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="/about" data-action="click->navbar#closeMobileMenu"
+                    class="block px-3 py-2 rounded-md text-base font-bold uppercase tracking-widest text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors font-tactical">Про
+                    нас</a>
+                <a href="/directions" data-action="click->navbar#closeMobileMenu"
+                    class="block px-3 py-2 rounded-md text-base font-bold uppercase tracking-widest text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors font-tactical">Напрямки</a>
+                <a href="/events" data-action="click->navbar#closeMobileMenu"
+                    class="block px-3 py-2 rounded-md text-base font-bold uppercase tracking-widest text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors font-tactical">Заходи</a>
+                <a href="/contacts" data-action="click->navbar#closeMobileMenu"
+                    class="block px-3 py-2 rounded-md text-base font-bold uppercase tracking-widest text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors font-tactical">Контакти</a>
+                <a href="/join" data-action="click->navbar#closeMobileMenu"
+                    class="text-white bg-zinc-800 hover:text-white block px-3 py-3 text-sm font-bold uppercase tracking-widest mt-4 text-center clip-edges-sm">Долучитися</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow flex flex-col">
+      <div data-controller="card">
+<div
+        class="relative pt-32 pb-20 sm:pt-40 sm:pb-28 lg:pb-36 overflow-hidden flex-grow bg-pattern border-b border-zinc-900 flex flex-col justify-center min-h-[85vh]">
+
+        <img alt="" class="fixed top-[43%] left-[49%] -translate-x-1/2 -translate-y-1/2 w-full max-w-[1200px] opacity-[0.18] pointer-events-none z-0" src="assets/images/logo.svg" />
+
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-tactical-950/80 to-tactical-950 pointer-events-none z-0"></div>
+
+        <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center translate-x-[2%]">
+
+
+            <h1 class="flex flex-col items-center text-5xl sm:text-7xl lg:text-8xl font-display font-black tracking-tighter uppercase leading-[0.9] mb-6">
+                <span id="grunt-word" class="text-white font-holos tracking-wide drop-shadow-md">ҐРУНТ</span>
+                <span id="nacii-word" class="text-white font-holos tracking-wide drop-shadow-md mt-1 sm:mt-2">НАЦІЇ</span>
+                <span class="text-sm sm:text-base font-tactical tracking-[0.3em] text-white block mt-6 font-semibold text-center drop-shadow-sm">ДИСЦИПЛІНА • ВИТРИВАЛІСТЬ • ХАРАКТЕР</span>
+            </h1>
+
+            <p class="mt-6 text-base sm:text-lg lg:text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed drop-shadow-sm">
+                Молодіжний рух, що об'єднує вмотивовану молодь. <br>
+                Наша основа — комплексний розвиток духу і тіла, національна ідентичність та
+                всебічна підготовка до викликів сьогодення.
+            </p>
+
+            <div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center w-full sm:w-auto">
+                <a href="#recruit-form"
+                    class="inline-flex items-center justify-center px-10 py-5 text-sm font-black uppercase tracking-widest text-black bg-white hover:bg-zinc-300 clip-edges glow-hover transition-all duration-300 w-full sm:w-auto">
+                    Долучитися
+                    <svg class="ml-2 -mr-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </a>
+                <a href="#directions"
+                    class="inline-flex items-center justify-center px-10 py-5 border border-zinc-800 bg-tactical-950/50 backdrop-blur-sm text-sm font-bold uppercase tracking-widest text-white hover:bg-zinc-900 clip-edges transition-all duration-300 w-full sm:w-auto">
+                    Дізнатись більше
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="about" class="relative z-10 py-24 bg-tactical-900 border-b border-zinc-900 -mt-px">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1 relative flex justify-center items-center w-full">
+                    <div
+                        class="w-full aspect-[3/2] bg-tactical-950 border border-zinc-800 clip-edges relative overflow-hidden">
+                        <img alt="Про нас" class="w-full h-full object-cover" onerror="this.outerHTML=&#39;&lt;div class=\&#39;w-full h-full bg-zinc-900 flex items-center justify-center text-zinc-500 font-tactical text-xs\&#39;&gt;[ ЗОБРАЖЕННЯ: about_us.jpg ]&lt;/div&gt;&#39;" src="assets/images/about_us.jpg" />
+                        <div class="absolute inset-0 border border-white/5 m-3 clip-edges pointer-events-none"></div>
+                    </div>
+                </div>
+
+                <div class="order-1 lg:order-2">
+                    <div
+                        class="text-xs font-mono font-bold uppercase tracking-[0.3em] text-zinc-500 mb-2 font-tactical">
+                        ХТО МИ Є</div>
+                    <h2
+                        class="text-4xl md:text-5xl font-display font-black uppercase tracking-tighter text-white border-l-4 border-white pl-6 mb-6">
+                        Про нас
+                    </h2>
+                    <p class="text-zinc-300 text-base leading-relaxed mb-6">
+                        Ми гуртуємо тих, хто не шукає легких шляхів, а обирає дію замість очікування та прагне здобувати прикладні навички. Завдяки системному підходу, дисципліні та взаємоповазі, ми даємо інструменти для подолання будь-яких перешкод, виховуючи нове покоління лідерів, здатних брати відповідальність за своє майбутнє.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 border-t border-zinc-800 pt-8">
+                        <div>
+                            <div class="text-3xl font-display font-black text-white mb-1">100%</div>
+                            <div class="text-xs font-mono uppercase tracking-wider text-zinc-500 font-tactical">
+                                Вмотивованість</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-display font-black text-white mb-1">4+</div>
+                            <div class="text-xs font-mono uppercase tracking-wider text-zinc-500 font-tactical">Вектори
+                                розвитку</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="directions" class="relative z-10 py-24 bg-tactical-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-20">
+                <div class="text-xs font-mono font-bold uppercase tracking-[0.3em] text-zinc-500 mb-2 font-tactical">
+                    ЧОМУ МИ НАВЧАЄМО</div>
+                <h2
+                    class="text-4xl md:text-5xl font-display font-black uppercase tracking-tighter text-white border-l-4 border-white pl-6">
+                    Напрямки підготовки
+                </h2>
+                <p class="mt-4 text-zinc-400 max-w-2xl text-base">Системний та
+                    прагматичний підхід до навчання молоді у чотирьох ключових векторах.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                <div
+                    class="bg-tactical-900 border border-zinc-900 clip-edges hover:border-zinc-700 transition-all duration-300 group relative overflow-hidden">
+                    <div class="p-8 relative z-10">
+                        <div
+                            class="text-zinc-500 font-mono font-bold mb-4 uppercase tracking-widest text-xs font-tactical">
+                            01 / ФІЗИЧНИЙ ГАРТ</div>
+                        <h3 class="text-2xl font-display font-black text-white uppercase mb-6">
+                            Фізична підготовка</h3>
+                        <ul class="space-y-4 mb-8 text-zinc-300">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-zinc-500 mr-3 mt-0.5 flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span><strong>Бойові мистецтва:</strong> бокс та
+                                    боротьба (базові та прикладні навички)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-zinc-500 mr-3 mt-0.5 flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span><strong>ОФП:</strong> загальна фізична підготовка
+                                    на витривалість, силу, координацію</span>
+                            </li>
+                        </ul>
+
+                        <button data-action="click->card#toggle" data-card-target="physical"
+                            class="w-full flex justify-center items-center py-3 border border-zinc-800 bg-tactical-950 text-white font-bold uppercase tracking-widest text-xs font-tactical group-hover:bg-white group-hover:text-black transition-all clip-edges-sm relative z-20 cursor-pointer mb-2">
+                            Детальніше про напрямок
+                            <svg data-card-target="physicalIcon" class="w-4 h-4 ml-2 transition-transform duration-300"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div
+                        class="absolute top-0 right-0 p-8 opacity-5 text-white transition-opacity duration-300 z-0 pointer-events-none">
+                        <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+
+                    <div data-card-target="physicalContent"
+                        class="overflow-hidden transition-all duration-500 ease-in-out relative z-10"
+                        style="max-height: 0px;">
+                        <div class="px-8 pb-8 text-zinc-300 text-sm">
+                            <p class="mb-4">Наші тренування з фізичної підготовки
+                                розроблені для того, щоб перевершити просто фізичну
+                                силу. Ми фокусуємося на створенні комплексного,
+                                прикладного атлетизму, який можна використовувати в
+                                тактичних ситуаціях.</p>
+                            <p>Наші кваліфіковані тренери використовують науково
+                                обґрунтовані методики, щоб забезпечити прогресивне та
+                                безпечне навчання, від базових навичок самооборони до
+                                просунутих технік тактичної боротьби. Кожне тренування —
+                                це крок до зміцнення вашого тіла та загартування вашої
+                                волі.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-tactical-900 border border-zinc-900 clip-edges hover:border-zinc-700 transition-all duration-300 group relative overflow-hidden">
+                    <div class="p-8 relative z-10">
+                        <div
+                            class="text-zinc-500 font-mono font-bold mb-4 uppercase tracking-widest text-xs font-tactical">
+                            02 / МІЛІТАРІ СТАНДАРТИ</div>
+                        <h3 class="text-2xl font-display font-black text-white uppercase mb-6">
+                            Тактична підготовка</h3>
+                        <ul class="space-y-4 mb-8 text-zinc-300">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-zinc-500 mr-3 mt-0.5 flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span><strong>Холостіння:</strong> безпечне поводження
+                                    та робота зі зброєю (пістолет, автомат)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-zinc-500 mr-3 mt-0.5 flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span><strong>Групова тактика:</strong> пересування на
+                                    місцевості, взаємодія та робота в малих
+                                    групах</span>
+                            </li>
+                        </ul>
+                        <button data-action="click->card#toggle" data-card-target="tactical"
+                            class="w-full flex justify-center items-center py-3 border border-zinc-800 bg-tactical-950 text-white font-bold uppercase tracking-widest text-xs font-tactical group-hover:bg-white group-hover:text-black transition-all clip-edges-sm relative z-20 cursor-pointer mb-2">
+                            Детальніше про напрямок
+                            <svg data-card-target="tacticalIcon" class="w-4 h-4 ml-2 transition-transform duration-300"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div
+                        class="absolute top-0 right-0 p-8 opacity-5 text-white transition-opacity duration-300 z-0 pointer-events-none">
+                        <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <div data-card-target="tacticalContent"
+                        class="overflow-hidden transition-all duration-500 ease-in-out relative z-10"
+                        style="max-height: 0px;">
+                        <div class="px-8 pb-8 text-zinc-300 text-sm">
+                            <p class="mb-4"><strong>• Вогнева підготовка (АК, AR, гвинтівки)</strong><br>
+                                Матеріальна частина, анатомія та ергономіка збройових систем. Правила безпечного поводження, обслуговування, стійки, хвати та відпрацювання точності. Ознайомлення з видами та специфікою снайперських гвинтівок.</p>
+
+                            <p class="mb-4"><strong>• Саперна справа (Мінна безпека)</strong><br>
+                                Вивчення та розпізнавання основних видів мін, розтяжок та вибухонебезпечних предметів. Алгоритми дій при виявленні загрози. Курс повністю орієнтований на безпеку та виживання.</p>
+
+                            <p class="mb-4"><strong>• Тактика дій</strong><br>
+                                Основи переміщення у складі бойових груп, робота на закритій та відкритій місцевості. Взаємодія в команді, комунікація в бою та прийняття рішень в стресових ситуаціях.</p>
+
+                            <p class="mb-4"><strong>• Спорядження та екіпірування</strong><br>
+                                Підбір, індивідуальне підгоняння та правильний розподіл ваги: бронежилети, шоломи, розвантажувальні системи та зв'язок. Ефективне використання екіпірування в екстремальних умовах.</p>
+
+                            <p>Як заключення занять - виїзд та відпрацювання на полігоні.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-tactical-900 border border-zinc-900 clip-edges hover:border-zinc-700 transition-all duration-300 group relative overflow-hidden">
+                    <div class="p-8 relative z-10">
+                        <div
+                            class="text-zinc-500 font-mono font-bold mb-4 uppercase tracking-widest text-xs font-tactical">
+                            03 / ПОРЯТУНОК ЖИТТЯ</div>
+                        <h3 class="text-2xl font-display font-black text-white uppercase mb-6">
+                            Медична підготовка</h3>
+                        <ul class="space-y-4 mb-8 text-zinc-300">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-zinc-500 mr-3 mt-0.5 flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span><strong>Домедична допомога:</strong> навчання
+                                    алгоритмам надання допомоги під вогнем та в зоні
+                                    безпеки</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-zinc-500 mr-3 mt-0.5 flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span><strong>Практичний інтенсив:</strong> робота з
+                                    сучасними турнікетами, зупинка масивних кровотеч,
+                                    евакуація пораненого</span>
+                            </li>
+                        </ul>
+                        <button data-action="click->card#toggle" data-card-target="medical"
+                            class="w-full flex justify-center items-center py-3 border border-zinc-800 bg-tactical-950 text-white font-bold uppercase tracking-widest text-xs font-tactical group-hover:bg-white group-hover:text-black transition-all clip-edges-sm relative z-20 cursor-pointer mb-2">
+                            Детальніше про напрямок
+                            <svg data-card-target="medicalIcon" class="w-4 h-4 ml-2 transition-transform duration-300"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div
+                        class="absolute top-0 right-0 p-8 opacity-5 text-white transition-opacity duration-300 z-0 pointer-events-none">
+                        <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div data-card-target="medicalContent"
+                        class="overflow-hidden transition-all duration-500 ease-in-out relative z-10"
+                        style="max-height: 0px;">
+                        <div class="px-8 pb-8 text-zinc-300 text-sm">
+                            <p class="mb-4">Медична підготовка — це критично важливий
+                                напрямок, який рятує життя. Ми вчимо не просто
+                                алгоритмам, а розумінню процесів і вмінню діяти рішуче,
+                                коли кожна секунда на рахунку.</p>
+                            <p>Наш курс базується на сучасних міжнародних стандартах
+                                (TCCC) та присвячений наданню домедичної допомоги в
+                                тактичних умовах. Ми фокусуємося на практичних навичках:
+                                від правильного накладання турнікетів та зупинки
+                                кровотеч до проведення евакуації поранених, забезпечуючи
+                                вам знання, необхідні для порятунку життів.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-tactical-900 border border-zinc-900 clip-edges hover:border-zinc-700 transition-all duration-300 group relative overflow-hidden">
+                    <div class="p-8 relative z-10">
+                        <div
+                            class="text-zinc-500 font-mono font-bold mb-4 uppercase tracking-widest text-xs font-tactical">
+                            04 / СВІДОМА НАЦІЯ</div>
+                        <h3 class="text-2xl font-display font-black text-white uppercase mb-6">
+                            Освітній напрям</h3>
+                        <ul class="space-y-4 mb-8 text-zinc-300">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-zinc-500 mr-3 mt-0.5 flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span><strong>Ідеологія:</strong> історія України,
+                                    плекання та захист національної ідентичності</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-zinc-500 mr-3 mt-0.5 flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span><strong>Аналітика:</strong> розвиток критичного
+                                    мислення, засади внутрішньої дисципліни та
+                                    лідерства</span>
+                            </li>
+                        </ul>
+                        <button data-action="click->card#toggle" data-card-target="educational"
+                            class="w-full flex justify-center items-center py-3 border border-zinc-800 bg-tactical-950 text-white font-bold uppercase tracking-widest text-xs font-tactical group-hover:bg-white group-hover:text-black transition-all clip-edges-sm relative z-20 cursor-pointer mb-2">
+                            Детальніше про напрямок
+                            <svg data-card-target="educationalIcon" class="w-4 h-4 ml-2 transition-transform duration-300"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div
+                        class="absolute top-0 right-0 p-8 opacity-5 text-white transition-opacity duration-300 z-0 pointer-events-none">
+                        <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+                            </path>
+                        </svg>
+                    </div>
+                    <div data-card-target="educationalContent"
+                        class="overflow-hidden transition-all duration-500 ease-in-out relative z-10"
+                        style="max-height: 0px;">
+                        <div class="px-8 pb-8 text-zinc-300 text-sm">
+                            <p class="mb-4">Наша мета — сформувати не лише фізично, а й
+                                духовно сильне покоління українців. Ми віримо, що міцна
+                                національна свідомість є основою для будь-яких починань.
+                            </p>
+                            <p>Освітній напрямок включає вивчення історії України через
+                                призму ідеологічних концепцій, плекання та захист
+                                національної ідентичності. Ми також розвиваємо критичне
+                                мислення, навички аналізу інформації та лідерські
+                                якості, готуючи вас бути свідомими та відповідальними
+                                громадянами своєї держави.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="relative z-10 py-24 bg-black border-y border-zinc-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div id="events" class="flex flex-col justify-between">
+                <div>
+                    <div
+                        class="text-xs font-mono font-bold uppercase tracking-[0.3em] text-zinc-500 mb-2 font-tactical">
+                        ПОДІЇ</div>
+                    <h2
+                        class="text-3xl font-display font-black uppercase tracking-tighter text-white border-l-4 border-white pl-6 mb-10">
+                        Заходи та активність
+                    </h2>
+
+                    <p class="text-zinc-400 mb-8 text-base">Ми діємо спільно з дружніми
+                        патріотичними організаціями, спортивними та громадськими
+                        спільнотами для досягнення спільної мети.</p>
+
+                    <div class="space-y-8">
+                        <div class="flex gap-4 group">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 bg-tactical-900 border border-zinc-800 flex items-center justify-center text-white font-bold font-tactical transition-colors group-hover:bg-white group-hover:text-black">
+                                01</div>
+                            <div>
+                                <h4 class="text-lg font-bold text-white uppercase font-display">
+                                    Участь у турнірах</h4>
+                                <p class="text-zinc-400 mt-1 text-sm">Перевірка
+                                    отриманих навичок на практиці — регіональні та
+                                    всеукраїнські змагання.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 group">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 bg-tactical-900 border border-zinc-800 flex items-center justify-center text-white font-bold font-tactical transition-colors group-hover:bg-white group-hover:text-black">
+                                02</div>
+                            <div>
+                                <h4 class="text-lg font-bold text-white uppercase font-display">
+                                    Організація власних подій</h4>
+                                <p class="text-zinc-400 mt-1 text-sm">Польові збори,
+                                    вишколи, відкриті тренування та традиційні
+                                    "зернички" для зміцнення внутрішніх зв'язків.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 group">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 bg-tactical-900 border border-zinc-800 flex items-center justify-center text-white font-bold font-tactical transition-colors group-hover:bg-white group-hover:text-black">
+                                03</div>
+                            <div>
+                                <h4 class="text-lg font-bold text-white uppercase font-display">
+                                    Публічні виступи</h4>
+                                <p class="text-zinc-400 mt-1 text-sm">Взаємодія з
+                                    молоддю, відкриті лекції в навчальних закладах та
+                                    популяризація національних цінностей.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="recruit-form" class="relative z-10 py-24 bg-tactical-950 overflow-hidden">
+        <div
+            class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-px bg-gradient-to-r from-transparent via-white to-transparent opacity-30">
+        </div>
+
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <span
+                    class="text-xs font-mono font-bold uppercase tracking-[0.3em] text-zinc-500 mb-2 font-tactical block">ДОЛУЧИТИСЯ
+                    ДО РУХУ</span>
+                <h2 class="text-4xl md:text-5xl font-display font-black uppercase tracking-tighter text-white mb-4">
+                    Подати анкету</h2>
+                <p class="text-zinc-400 text-base max-w-xl mx-auto">Залиш свої контактні
+                                    дані. Організаційний координатор зв'яжеться з тобою для проведення
+                    співбесіди та запрошення на перше тренування.</p>
+            </div>
+
+            <form id="applicationForm" class="bg-tactical-900 border border-zinc-850 p-6 sm:p-12 shadow-2xl clip-edges"
+                data-controller="form" data-action="submit->form#submit">
+                <!-- Honeypot anti-spam field -->
+                <div style="position: absolute; left: -5000px; top: -5000px;" aria-hidden="true">
+                    <label for="bot_field">Leave this field empty</label>
+                    <input type="text" id="bot_field" name="bot_field" tabindex="-1" autocomplete="off">
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+                    <div class="sm:col-span-2">
+                        <label for="fullName"
+                            class="block text-xs font-bold text-zinc-400 uppercase tracking-widest mb-2 font-tactical">Прізвище,
+                            Ім'я, По батькові *</label>
+                        <input type="text" id="fullName" required
+                            class="w-full bg-tactical-950 border border-zinc-800 text-white px-4 py-3.5 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all duration-200 placeholder-zinc-700 text-sm"
+                            placeholder="Сціборський Микола Орестович">
+                    </div>
+
+                    <div>
+                        <label for="age"
+                            class="block text-xs font-bold text-zinc-400 uppercase tracking-widest mb-2 font-tactical">Повні
+                            роки *</label>
+                        <input type="number" id="age" min="7" max="65" required
+                            class="w-full bg-tactical-950 border border-zinc-800 text-white px-4 py-3.5 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all duration-200 placeholder-zinc-700 text-sm"
+                            placeholder="16">
+                    </div>
+
+                    <div>
+                        <label for="phone"
+                            class="block text-xs font-bold text-zinc-400 uppercase tracking-widest mb-2 font-tactical">Номер
+                            телефону *</label>
+                        <input type="tel" id="phone" required pattern="^(\+?380|0)[0-9]{9}$" title="Формат: +380XXXXXXXXX або 0XXXXXXXXX"
+                            class="w-full bg-tactical-950 border border-zinc-800 text-white px-4 py-3.5 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all duration-200 placeholder-zinc-700 text-sm"
+                            placeholder="+380XXXXXXXXX">
+                    </div>
+
+                    <div>
+                        <label for="telegram"
+                            class="block text-xs font-bold text-zinc-400 uppercase tracking-widest mb-2 font-tactical">Нікнейм
+                            у Telegram *</label>
+                        <input type="text" id="telegram" required
+                            class="w-full bg-tactical-950 border border-zinc-800 text-white px-4 py-3.5 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all duration-200 placeholder-zinc-700 text-sm"
+                            placeholder="@username">
+                    </div>
+
+                    <div>
+                        <label for="instagram"
+                            class="block text-xs font-bold text-zinc-400 uppercase tracking-widest mb-2 font-tactical">Нікнейм
+                            у Instagram</label>
+                        <input type="text" id="instagram"
+                            class="w-full bg-tactical-950 border border-zinc-800 text-white px-4 py-3.5 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all duration-200 placeholder-zinc-700 text-sm"
+                            placeholder="@username">
+                    </div>
+
+                    <div class="sm:col-span-2">
+                        <label for="direction"
+                            class="block text-xs font-bold text-zinc-400 uppercase tracking-widest mb-2 font-tactical">Бажаний
+                            напрямок підготовки *</label>
+                        <div class="relative">
+                            <select id="direction" required
+                                class="w-full bg-tactical-950 border border-zinc-800 text-white px-4 py-3.5 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all duration-200 appearance-none text-sm cursor-pointer">
+                                <option value="" disabled selected>Оберіть напрямок зі
+                                    списку...</option>
+                                <option value="Усі напрямки">Усі напрямки (Комплексна програма)
+                                </option>
+                                <option value="Фізична підготовка">Фізична підготовка (Бокс,
+                                    Кроссфіт, єдиноборства)</option>
+                                <option value="Тактична підготовка">Тактична підготовка (Зброя,
+                                    Екіпірування, БПЛА)</option>
+                                <option value="Медична підготовка">Медична підготовка (Домедична
+                                    допомога, Такмед)</option>
+                                <option value="Освітній напрям">Освітній напрям (Лекції,
+                                    Семінари, Історія)</option>
+                            </select>
+                            <div
+                                class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-zinc-500">
+                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sm:col-span-2">
+                        <label for="experience"
+                            class="block text-xs font-bold text-zinc-400 uppercase tracking-widest mb-2 font-tactical">Коротко про ваш рівень підготовки та досвід</label>
+                        <textarea id="experience" rows="3" maxlength="300"
+                            class="w-full bg-tactical-950 border border-zinc-800 text-white px-4 py-3.5 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all duration-200 placeholder-zinc-700 text-sm resize-none"
+                            placeholder=""></textarea>
+                    </div>
+                </div>
+
+                <label class="relative flex items-center gap-3 cursor-pointer group mt-8">
+                    <input type="checkbox" id="privacy" name="privacy" required class="peer sr-only">
+                    <div class="w-5 h-5 flex-shrink-0 border border-zinc-800 bg-tactical-950 peer-checked:border-white peer-checked:[&>svg]:opacity-100 transition-all duration-200 flex items-center justify-center">
+                        <svg class="w-3.5 h-3.5 text-white opacity-0 transition-opacity duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <span class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest font-tactical leading-none mt-[2px] group-hover:text-zinc-300 transition-colors">
+                        Я даю згоду на обробку моїх персональних даних
+                    </span>
+                </label>
+
+                <div class="mt-6">
+                    <button type="submit"
+                        class="w-full flex items-center justify-center px-8 py-4 text-sm font-black uppercase tracking-widest text-black bg-white hover:bg-zinc-350 clip-edges transition-all duration-300 shadow-md">
+                        Надіслати анкету
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="contacts" class="relative z-10 py-24 bg-tactical-950 border-t border-zinc-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <div
+                        class="text-xs font-mono font-bold uppercase tracking-[0.3em] text-zinc-500 mb-2 font-tactical">
+                        ЗВ'ЯЗОК З НАМИ</div>
+                    <h2
+                        class="text-4xl md:text-5xl font-display font-black uppercase tracking-tighter text-white border-l-4 border-white pl-6 mb-6">
+                        Контакти
+                    </h2>
+                    <p class="text-zinc-400 text-base leading-relaxed mb-10">
+                        Маєш питання щодо процесу відбору, тренувань чи співпраці? Зв'яжись із нашою командою напряму
+                        або завітай до нашого штабу.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4 group">
+                            <div
+                                class="w-12 h-12 bg-tactical-900 border border-zinc-800 flex items-center justify-center text-white transition-colors group-hover:bg-white group-hover:text-black clip-edges-sm">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="text-xs font-mono text-zinc-500 uppercase tracking-wider font-tactical">
+                                    Гаряча лінія</div>
+                                <a href="tel:+380931234567"
+                                    class="text-white hover:text-zinc-300 font-bold transition-colors">+380 (93)
+                                    123-45-67</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 group">
+                            <div
+                                class="w-12 h-12 bg-tactical-900 border border-zinc-800 flex items-center justify-center text-white transition-colors group-hover:bg-white group-hover:text-black clip-edges-sm">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="text-xs font-mono text-zinc-500 uppercase tracking-wider font-tactical">
+                                    Електронна пошта</div>
+                                <a href="mailto:info@grunt-naciyi.org.ua"
+                                    class="text-white hover:text-zinc-300 font-bold transition-colors">info@grunt-naciyi.org.ua</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 group">
+                            <div
+                                class="w-12 h-12 bg-tactical-900 border border-zinc-800 flex items-center justify-center text-white transition-colors group-hover:bg-white group-hover:text-black clip-edges-sm">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                    </path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="text-xs font-mono text-zinc-500 uppercase tracking-wider font-tactical">
+                                    Локація штабу</div>
+                                <div class="text-white font-bold">Київ, Україна</div>
+                            </div>
+                        </div>
+
+                        <!-- Соціальні мережі -->
+                        <div class="mt-10">
+                            <div class="text-xs font-mono text-zinc-500 uppercase tracking-wider font-tactical mb-4">
+                                Соціальні мережі</div>
+                            <div class="flex gap-4">
+                                <a href="https://www.instagram.com/nation_ground?igsh=MTRkZDk2NTd2Z2ppYQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer"
+                                    class="text-zinc-500 hover:text-white transition-colors p-3 bg-tactical-900 border border-zinc-800 clip-edges-sm">
+                                    <span class="sr-only">Instagram</span>
+                                    <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path fill-rule="evenodd"
+                                            d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </a>
+                                <a href="https://t.me/NationGround" target="_blank" rel="noopener noreferrer"
+                                    class="text-zinc-500 hover:text-white transition-colors p-3 bg-tactical-900 border border-zinc-800 clip-edges-sm">
+                                    <span class="sr-only">Telegram</span>
+                                    <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
+                                    </svg>
+                                </a>
+                                <a href="https://www.tiktok.com/@nationground?_r=1&_t=ZS-96i7jS9RtLg" target="_blank" rel="noopener noreferrer"
+                                    class="text-zinc-500 hover:text-white transition-colors p-3 bg-tactical-900 border border-zinc-800 clip-edges-sm">
+                                    <span class="sr-only">TikTok</span>
+                                    <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                                    </svg>
+                                </a>
+                                <a href="https://www.facebook.com/share/191m7b4fyS/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer"
+                                    class="text-zinc-500 hover:text-white transition-colors p-3 bg-tactical-900 border border-zinc-800 clip-edges-sm">
+                                    <span class="sr-only">Facebook</span>
+                                    <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                    </svg>
+                                </a>
+                                <a href="https://www.threads.com/@nation_ground?igshid=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer"
+                                    class="text-zinc-500 hover:text-white transition-colors p-3 bg-tactical-900 border border-zinc-800 clip-edges-sm">
+                                    <span class="sr-only">Threads</span>
+                                    <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142c-.126-.742-.375-1.332-.75-1.757-.513-.586-1.308-.883-2.359-.89h-.029c-.844 0-1.992.232-2.721 1.32L7.734 7.847c.98-1.454 2.568-2.256 4.478-2.256h.044c3.194.02 5.097 1.975 5.287 5.388.108.046.216.094.321.142 1.49.7 2.58 1.761 3.154 3.07.797 1.82.871 4.79-1.548 7.158-1.85 1.81-4.094 2.628-7.277 2.65Zm1.003-11.69c-.242 0-.487.007-.739.021-1.836.103-2.98.946-2.916 2.143.067 1.256 1.452 1.839 2.784 1.767 1.224-.065 2.818-.543 3.086-3.71a10.5 10.5 0 0 0-2.215-.221z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>    </main>
+
+        <footer class="relative z-10 bg-black border-t border-zinc-900 py-16 text-center sm:text-left">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-8">
+            <div class="flex flex-col items-center sm:items-start">
+                <span
+                    class="text-xl font-display font-black tracking-tighter uppercase text-white flex items-center gap-2 mb-2 select-none">
+                    <img alt="Лого" class="h-6 w-auto object-contain" onerror="this.outerHTML=&#39;&lt;div class=\&#39;w-6 h-6 border-2 border-white flex items-center justify-center font-display font-black text-white text-[10px]\&#39;&gt;ҐН&lt;/div&gt;&#39;" src="assets/images/logo.svg" />
+                    ҐРУНТ НАЦІЇ
+                </span>
+                <p class="text-zinc-500 text-xs font-tactical tracking-wider uppercase">
+                    ГРОМАДСЬКА ОРГАНІЗАЦІЯ. УКРАЇНА. © 2026</p>
+            </div>
+        </div>
+    </footer>
+        <div id="successModal" data-controller="modal" data-modal-target="container"
+        class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/95 backdrop-blur-md px-4">
+        <div class="bg-tactical-900 border-2 border-white p-8 sm:p-10 max-w-md w-full text-center clip-edges shadow-2xl">
+            <div
+                class="w-16 h-16 bg-white/10 border border-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                </svg>
+            </div>
+
+            <h3 class="text-2xl font-display font-black text-white uppercase mb-3 tracking-tight">
+                АНКЕТУ ЗАРЕЄСТРОВАНО</h3>
+            <p class="text-zinc-400 text-sm mb-8 leading-relaxed">Дякуємо за твою
+                ініціативу. Наш організаційний координатор зв'яжеться з тобою у Telegram
+                найближчим часом.</p>
+
+            <button data-action="click->modal#close"
+                class="w-full px-6 py-4 border-2 border-white font-bold uppercase tracking-widest text-black bg-white hover:bg-transparent hover:text-white clip-edges-sm transition-all duration-300">
+                Зрозуміло
+            </button>
+        </div>
+    </div>
+  </body>
+</html>
